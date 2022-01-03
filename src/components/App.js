@@ -7,11 +7,11 @@ const App = () => {
     const [term, setTerm] = useState("");
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=peshawar&appid=7c7e9cd92d87b486a43d527c331db2be`)
+        fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`)
             .then(res => res.json())
             .then(data => {
                 setImages(data.hits);
-                // setIsLoading(flase);
+                setIsLoading(false);
             })
             .catch(err => console.log(err))
     }, []);
